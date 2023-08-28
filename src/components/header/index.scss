@@ -23,7 +23,7 @@
     }
   }
 
-  &:checked ~ .menu__box {
+  &:checked ~ .menu {
     left: 0 !important;
   }
 }
@@ -59,19 +59,6 @@
       top: 8px;
     }
   }
-}
-
-.menu__box {
-  display: block;
-  position: fixed;
-  top: 0;
-  width: 250px;
-  height: 100vh;
-  margin: 0;
-  list-style: none;
-  background-color: $quoteBlockDark;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-  transform: translateX(-250px);
 }
 
 .header {
@@ -155,6 +142,69 @@
 
   &__save-logo {
     margin-right: 10px;
+  }
+}
+
+.menu {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 210px;
+  height: 100vh;
+  margin: 0;
+  list-style: none;
+  background-color: $quoteBlockDark;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  transform: translateX(-250px);
+  padding: 30px 20px;
+
+  &__title {
+    text-transform: uppercase;
+    color: $dividerDark;
+    letter-spacing: 0.1rem;
+    padding-bottom: 30px;
+  }
+
+  &__create-btn {
+    background-color: $orange;
+    color: $white;
+    border: none;
+    font-size: 16px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__block {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &__image {
+    margin-right: 10px;
+  }
+
+  &__info {
+
+  }
+
+  &__date {
+    font-size: 14px;
+    color: $dividerDark;
+  }
+
+  &__filename {
+    color: $white;
+    font-size: 16px;
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

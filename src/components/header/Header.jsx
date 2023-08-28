@@ -20,7 +20,35 @@ function Header() {
             <span></span>
           </label>
         </div>
-        <div className="menu__box"></div>
+        <div className="menu">
+          <h4 className="menu__title">My documents</h4>
+          <button className="menu__create-btn">+ New Document</button>
+          <div className="menu__block">
+            <img
+              src={DocumentLogo}
+              alt="document logo"
+              className="menu__image"
+            />
+            <div className="menu__info">
+              <p className="menu__date">04 January 2022</p>
+              <h5 className="menu__filename">welcome.md</h5>
+            </div>
+          </div>
+          <div className="menu__block">
+            <img
+              src={DocumentLogo}
+              alt="document logo"
+              className="menu__image"
+            />
+            <div className="menu__info">
+              <p className="menu__date">04 January 2022</p>
+              <h5 className="menu__filename">untitled-document.md</h5>
+            </div>
+          </div>
+          <div className="menu__theme">
+            
+          </div>
+        </div>
         <div className="header__block">
           <img src={Logo} alt="logo" className="header__logo" />
           <span className="header__vertical-line" />

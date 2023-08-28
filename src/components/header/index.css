@@ -17,7 +17,7 @@
   top: 0;
   transform: rotate(90deg);
 }
-#menu-toggle:checked ~ .menu__box {
+#menu-toggle:checked ~ .menu {
   left: 0 !important;
 }
 
@@ -47,19 +47,6 @@
 .hamburger__btn > span::after {
   content: "";
   top: 8px;
-}
-
-.menu__box {
-  display: block;
-  position: fixed;
-  top: 0;
-  width: 250px;
-  height: 100vh;
-  margin: 0;
-  list-style: none;
-  background-color: #2b2d31;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-  transform: translateX(-250px);
 }
 
 .header {
@@ -129,6 +116,58 @@
 }
 .header__save-logo {
   margin-right: 10px;
+}
+
+.menu {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 210px;
+  height: 100vh;
+  margin: 0;
+  list-style: none;
+  background-color: #2b2d31;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  transform: translateX(-250px);
+  padding: 30px 20px;
+}
+.menu__title {
+  text-transform: uppercase;
+  color: #5a6069;
+  letter-spacing: 0.1rem;
+  padding-bottom: 30px;
+}
+.menu__create-btn {
+  background-color: #e46643;
+  color: #ffffff;
+  border: none;
+  font-size: 16px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.menu__create-btn:hover {
+  cursor: pointer;
+}
+.menu__block {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+}
+.menu__image {
+  margin-right: 10px;
+}
+.menu__date {
+  font-size: 14px;
+  color: #5a6069;
+}
+.menu__filename {
+  color: #ffffff;
+  font-size: 16px;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .document {
