@@ -1,14 +1,21 @@
+import { useState } from "react";
 import "./index.css";
 import Logo from "../../assets/images/logo.svg";
 import DocumentLogo from "../../assets/images/icon-document.svg";
 import SaveLogo from "../../assets/images/icon-save.svg";
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <div className="header">
+    <div className={`header ${menuOpen ? "menu-open" : ""}`}>
       <div className="header__left-side">
         <div className="header__menu-btn hamburger">
-          <input type="checkbox" id="menu-toggle" />
+          <input type="checkbox" id="menu-toggle" onClick={handleMenuToggle} />
           <label className="hamburger__btn" htmlFor="menu-toggle">
             <span></span>
           </label>
