@@ -19,8 +19,8 @@ function Header() {
           <label className="hamburger__btn" htmlFor="menu-toggle">
             <span></span>
           </label>
-          <div className="menu__box"></div>
         </div>
+        <div className="menu__box"></div>
         <div className="header__block">
           <img src={Logo} alt="logo" className="header__logo" />
           <span className="header__vertical-line" />
