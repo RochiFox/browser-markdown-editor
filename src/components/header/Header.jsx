@@ -4,7 +4,6 @@ import DocumentLogo from "../../assets/images/icon-document.svg";
 import SaveLogo from "../../assets/images/icon-save.svg";
 
 function Header() {
-
   return (
     <div className="header">
       <div className="header__left-side">
@@ -15,7 +14,7 @@ function Header() {
           </label>
           <div className="menu__box"></div>
         </div>
-        <div className="test">
+        <div className="header__block">
           <img src={Logo} alt="logo" className="header__logo" />
           <span className="header__vertical-line" />
           <div className="header__document document">
@@ -24,8 +23,10 @@ function Header() {
               alt="document logo"
               className="document__logo"
             />
-            <p className="document__subtitle">Document Name</p>
-            <h4 className="document__title">welcome.md</h4>
+            <div className="document__block">
+              <p className="document__subtitle">Document Name</p>
+              <h4 className="document__title">welcome.md</h4>
+            </div>
           </div>
         </div>
       </div>

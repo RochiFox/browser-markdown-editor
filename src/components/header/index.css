@@ -82,4 +82,67 @@
 }
 .header__menu-btn:hover {
   background-color: #E46643;
+}
+.header__block {
+  display: flex;
+  align-items: center;
+}
+.header__logo {
+  width: 130px;
+  height: 12px;
+  padding: 0 20px;
+}
+.header__vertical-line {
+  border-left: 1px solid #5A6069;
+  height: 50px;
+}
+.header__right-side {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.header__delete-btn {
+  width: 18px;
+  height: 20px;
+  background-image: url(./../../assets/images/icon-delete.svg);
+  border: none;
+  background-color: transparent;
+  margin-right: 20px;
+}
+.header__delete-btn:hover {
+  cursor: pointer;
+}
+.header__save-btn {
+  background-color: #E46643;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 5px;
+}
+.header__save-btn:hover {
+  cursor: pointer;
+}
+.header__save-logo {
+  margin-right: 10px;
+}
+
+.document {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+.document__logo {
+  width: 14px;
+  height: 16px;
+  padding-right: 20px;
+}
+.document__subtitle {
+  color: #C1C4CB;
+}
+.document__title {
+  color: #F5F5F5;
 }/*# sourceMappingURL=index.css.map */

@@ -37,7 +37,6 @@
     height: 10px;
     cursor: pointer;
     z-index: 1;
-    
 
     > span,
     > span::before,
@@ -63,19 +62,19 @@
 }
 
 .menu__box {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 250px;
-    height: 100%;
-    margin: 0;
-    padding: 80px 0;
-    list-style: none;
-    background-color: $quoteBlockDark;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
-    transition-duration: 0.3s;
-  }
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 250px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  background-color: $quoteBlockDark;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  transition-duration: 0.3s;
+}
 
 .header {
   width: 100%;
@@ -95,7 +94,82 @@
     transition: all 0.3s ease-in-out;
 
     &:hover {
-        background-color: $orange;
+      background-color: $orange;
     }
+  }
+
+  &__block {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 130px;
+    height: 12px;
+    padding: 0 20px;
+  }
+
+  &__vertical-line {
+    border-left: 1px solid $dividerDark;
+    height: 50px;
+  }
+
+  &__right-side {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+
+  &__delete-btn {
+    width: 18px;
+    height: 20px;
+    background-image: url(./../../assets/images/icon-delete.svg);
+    border: none;
+    background-color: transparent;
+    margin-right: 20px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__save-btn {
+    background-color: $orange;
+    color: $white;
+    border: none;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 5px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__save-logo {
+    margin-right: 10px;
+  }
+}
+
+.document {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+
+  &__logo {
+    width: 14px;
+    height: 16px;
+    padding-right: 20px;
+  }
+
+  &__subtitle {
+    color: $lightGray;
+  }
+
+  &__title {
+    color: $darkWhite;
   }
 }
