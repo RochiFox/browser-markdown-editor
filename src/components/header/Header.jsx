@@ -3,6 +3,8 @@ import "./index.css";
 import Logo from "../../assets/images/logo.svg";
 import DocumentLogo from "../../assets/images/icon-document.svg";
 import SaveLogo from "../../assets/images/icon-save.svg";
+import MoonLight from "../../assets/images/icon-light-mode.svg";
+import MoonDark from "../../assets/images/icon-dark-mode.svg";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,7 +48,25 @@ function Header() {
             </div>
           </div>
           <div className="menu__theme">
-            
+            <img
+              src={MoonLight}
+              alt="light theme logo"
+              className="menu__logo-light"
+            />
+            <input
+              type="checkbox"
+              id="theme-switch"
+              name="theme-switch"
+              className="menu__theme-switch"
+            />
+            <label htmlFor="theme-switch" className="menu__theme-label">
+              <span></span>
+            </label>
+            <img
+              src={MoonDark}
+              alt="dark theme logo"
+              className="menu__logo-dark"
+            />
           </div>
         </div>
         <div className="header__block">
