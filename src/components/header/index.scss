@@ -134,9 +134,11 @@
     font-weight: bold;
     font-size: 14px;
     border-radius: 5px;
+    transition: all 0.3s ease-in-out;
 
     &:hover {
       cursor: pointer;
+      background-color: $lightOrange;
     }
   }
 
@@ -173,9 +175,11 @@
     padding: 10px 30px;
     border-radius: 5px;
     margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
 
     &:hover {
       cursor: pointer;
+      background-color: $lightOrange;
     }
   }
 
