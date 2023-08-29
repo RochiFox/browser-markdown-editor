@@ -153,26 +153,6 @@
   cursor: pointer;
   background-color: #f77a58;
 }
-.menu__block {
-  padding: 20px 0;
-  display: flex;
-  align-items: center;
-}
-.menu__image {
-  margin-right: 10px;
-}
-.menu__date {
-  font-size: 14px;
-  color: #5a6069;
-}
-.menu__filename {
-  color: #ffffff;
-  font-size: 16px;
-  width: 180px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 .menu__logo-light {
   position: absolute;
   top: 90%;

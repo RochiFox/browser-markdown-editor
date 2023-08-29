@@ -1,10 +1,12 @@
 import { useState } from "react";
+import data from "../../data/data.json";
 import "./index.css";
 import Logo from "../../assets/images/logo.svg";
 import DocumentLogo from "../../assets/images/icon-document.svg";
 import SaveLogo from "../../assets/images/icon-save.svg";
 import MoonLight from "../../assets/images/icon-light-mode.svg";
 import MoonDark from "../../assets/images/icon-dark-mode.svg";
+import DocumentFile from "../documentFile/DocumentFIle";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,28 +27,15 @@ function Header() {
         <div className="menu">
           <h4 className="menu__title">My documents</h4>
           <button className="menu__create-btn">+ New Document</button>
-          <div className="menu__block">
-            <img
-              src={DocumentLogo}
-              alt="document logo"
-              className="menu__image"
+
+          {data.map((item) => (
+            <DocumentFile
+              key={item.id}
+              name={item.name}
+              createdAt={item.createdAt}
             />
-            <div className="menu__info">
-              <p className="menu__date">04 January 2022</p>
-              <h5 className="menu__filename">welcome.md</h5>
-            </div>
-          </div>
-          <div className="menu__block">
-            <img
-              src={DocumentLogo}
-              alt="document logo"
-              className="menu__image"
-            />
-            <div className="menu__info">
-              <p className="menu__date">04 January 2022</p>
-              <h5 className="menu__filename">untitled-document.md</h5>
-            </div>
-          </div>
+          ))}
+
           <div className="menu__theme">
             <img
               src={MoonLight}

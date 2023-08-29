@@ -183,30 +183,6 @@
     }
   }
 
-  &__block {
-    padding: 20px 0;
-    display: flex;
-    align-items: center;
-  }
-
-  &__image {
-    margin-right: 10px;
-  }
-
-  &__date {
-    font-size: 14px;
-    color: $dividerDark;
-  }
-
-  &__filename {
-    color: $white;
-    font-size: 16px;
-    width: 180px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
   &__logo-light {
     position: absolute;
     top: 90%;
