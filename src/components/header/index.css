@@ -22,7 +22,7 @@
 }
 
 .hamburger__btn {
-  position: fixed;
+  position: absolute;
   top: 35px;
   left: 25px;
   width: 30px;
@@ -55,6 +55,8 @@
   background-color: #35393f;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 2;
 }
 .header.menu-open .header__left-side {
   transform: translateX(250px);

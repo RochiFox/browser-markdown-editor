@@ -6,7 +6,6 @@ function Home () {
         <>
             <Header />
             <Main />
-            
         </>
     )
 }

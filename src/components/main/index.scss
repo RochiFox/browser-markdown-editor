@@ -1,0 +1,98 @@
+@import "./../../assets/colors/color.scss";
+
+.main {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+
+  &__left-side {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__right-side {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.markdown {
+  &__textarea {
+    width: 100%;
+    height: 100vh;
+    background-color: $backgroundDark;
+    border: none;
+    color: $lightGray;
+    font-size: 16px;
+    font-family: RobotoMono, sans-serif;
+    padding-left: 15px;
+    padding-top: 5px;
+    box-sizing: border-box;
+    border-right: 2px solid $dividerDark;
+
+    &:focus {
+        outline: none;
+    }
+  }
+
+  &__title-block {
+    background-color: $quoteBlockDark;
+    border-right: 2px solid $dividerDark;
+  }
+
+  &__title {
+    color: $gray;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 15px;
+    letter-spacing: 0.1rem;
+  }
+}
+
+.preview {
+  &__title-block {
+    background-color: $quoteBlockDark;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    color: $gray;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 15px;
+    letter-spacing: 0.1rem;
+  }
+
+  &__show-btn {
+    background-image: url(./../../assets/images/icon-hide-preview.svg);
+    width: 16px;
+    height: 12px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    top: 20px;
+    right: 20px;
+    transition: all 0.2s ease-in-out;
+
+    &_active {
+      background-image: url(./../../assets/images/icon-show-preview.svg);
+    }
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.6;
+    }
+  }
+
+  &__text {
+    background-color: $backgroundDark;
+    width: 100%;
+    height: 100vh;
+  }
+}
