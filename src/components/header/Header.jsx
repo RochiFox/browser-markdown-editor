@@ -4,9 +4,19 @@ import Logo from "../../assets/images/logo.svg";
 import DocumentLogo from "../../assets/images/icon-document.svg";
 import SaveLogo from "../../assets/images/icon-save.svg";
 import MenuBar from "../menuBar/MenuBar";
+import DeletePopupMenu from "../deletePopupMenu/DeletePopupMenu";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const openPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
@@ -39,7 +49,8 @@ function Header() {
         </div>
       </div>
       <div className="header__right-side">
-        <button className="header__delete-btn" />
+        <button className="header__delete-btn" onClick={openPopup} />
+        <DeletePopupMenu isOpen={isPopupOpen} onClose={closePopup} />
         <button className="header__save-btn">
           <img src={SaveLogo} alt="save logo" className="header__save-logo" />
           Save Changes

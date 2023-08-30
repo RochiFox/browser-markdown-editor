@@ -118,9 +118,11 @@
     border: none;
     background-color: transparent;
     margin-right: 20px;
+    transition: opacity 0.2s ease-in-out;
 
     &:hover {
       cursor: pointer;
+      opacity: 0.6;
     }
   }
 
