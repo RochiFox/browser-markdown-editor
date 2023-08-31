@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import "./index.css";
 
 function Main() {
@@ -27,7 +28,9 @@ function Main() {
             <h2 className="preview__title">Preview</h2>
             <button className="preview__show-btn preview__show-btn_active" />
           </div>
-          <div className="preview__text">{markdownText}</div>
+          <div className="preview__text">
+            <ReactMarkdown>{markdownText}</ReactMarkdown>
+          </div>
         </div>
       </div>
     </div>
