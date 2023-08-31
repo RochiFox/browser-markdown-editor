@@ -18,6 +18,7 @@ function Main() {
           </div>
           <textarea
             className="markdown__textarea"
+            rows={27}
             onChange={handleTextChange}
           ></textarea>
         </div>
