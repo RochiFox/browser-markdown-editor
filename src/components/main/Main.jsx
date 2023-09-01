@@ -29,7 +29,9 @@ function Main() {
             <button className="preview__show-btn preview__show-btn_active" />
           </div>
           <div className="preview__text">
-            <ReactMarkdown>{markdownText}</ReactMarkdown>
+            <div className="preview__content">
+              <ReactMarkdown>{markdownText}</ReactMarkdown>
+            </div>
           </div>
         </div>
       </div>

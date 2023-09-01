@@ -101,8 +101,13 @@
     height: 100%;
     color: $lightGray;
     font-size: 16px;
-    padding: 5px 20px 10px 20px;
     word-break: break-all;
     box-sizing: border-box;
+  }
+
+  &__content {
+    max-height: calc(100vh - 150px);
+    padding: 5px 20px 10px 20px;
+    overflow: auto;
   }
 }
