@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import data from "./../../data/data.json";
 import "./index.css";
 
 function Main() {
-  const [markdownText, setMarkdownText] = useState("");
+  const initialMarkdownText = data[0].content;
+  const [markdownText, setMarkdownText] = useState(initialMarkdownText);
 
   const handleTextChange = (event) => {
     setMarkdownText(event.target.value);
@@ -19,6 +21,7 @@ function Main() {
           <textarea
             className="markdown__textarea"
             onChange={handleTextChange}
+            defaultValue={initialMarkdownText}
           ></textarea>
         </div>
       </div>
