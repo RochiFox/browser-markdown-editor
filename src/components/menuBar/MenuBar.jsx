@@ -1,3 +1,4 @@
+import { useState } from "react";
 import data from "../../data/data.json";
 import MoonLight from "../../assets/images/icon-light-mode.svg";
 import MoonDark from "../../assets/images/icon-dark-mode.svg";
@@ -5,12 +6,32 @@ import DocumentFile from "../documentFile/DocumentFIle";
 import "./index.css";
 
 function MenuBar() {
+  const [documents, setDocuments] = useState(data);
+
+  const createNewDocument = () => {
+    const newDocument = {
+      id: documents.length + 1,
+      name: `untitled-${documents.length + 1}.md`,
+      createdAt: new Date().toLocaleDateString("en-US", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }),
+    };
+
+    const updatedDocuments = [...documents, newDocument];
+
+    setDocuments(updatedDocuments);
+  };
+
   return (
     <div className="menu">
       <h4 className="menu__title">My documents</h4>
-      <button className="menu__create-btn">+ New Document</button>
+      <button className="menu__create-btn" onClick={createNewDocument}>
+        + New Document
+      </button>
 
-      {data.map((item) => (
+      {documents.map((item) => (
         <DocumentFile
           key={item.id}
           name={item.name}

@@ -17,4 +17,9 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: all 0.2s ease-in-out;
+}
+.menu__filename:hover {
+  cursor: pointer;
+  color: #c1c4cb;
 }/*# sourceMappingURL=index.css.map */
