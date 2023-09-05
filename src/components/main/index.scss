@@ -10,11 +10,21 @@
   &__left-side {
     width: 50%;
     height: 100%;
+    transition: all 0.5s ease-in-out;
+
+    &_short {
+      width: 0%;
+    }
   }
 
   &__right-side {
     width: 50%;
     height: 100%;
+    transition: all 0.5s ease-in-out;
+
+    &_long {
+      width: 100%;
+    }
   }
 }
 

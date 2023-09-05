@@ -8,10 +8,18 @@
 .main__left-side {
   width: 50%;
   height: 100%;
+  transition: all 0.5s ease-in-out;
+}
+.main__left-side_short {
+  width: 0%;
 }
 .main__right-side {
   width: 50%;
   height: 100%;
+  transition: all 0.5s ease-in-out;
+}
+.main__right-side_long {
+  width: 100%;
 }
 
 .markdown {
