@@ -156,6 +156,10 @@
   align-items: center;
   padding: 0 20px;
 
+  &__block {
+    width: 140px;
+  }
+
   &__logo {
     width: 14px;
     height: 16px;
@@ -168,5 +172,18 @@
 
   &__title {
     color: $darkWhite;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    width: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      border-bottom: 1px solid $white;
+      outline: none;
+    }
   }
 }

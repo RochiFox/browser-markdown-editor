@@ -1,4 +1,5 @@
 import { useState } from "react";
+import data from "./../../data/data.json";
 import "./index.css";
 import Logo from "../../assets/images/logo.svg";
 import DocumentLogo from "../../assets/images/icon-document.svg";
@@ -9,6 +10,7 @@ import DeletePopupMenu from "../deletePopupMenu/DeletePopupMenu";
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [fileName, setFileName] = useState(data[0].name);
 
   const openPopup = () => {
     setIsPopupOpen(true);
@@ -43,7 +45,12 @@ function Header() {
             />
             <div className="document__block">
               <p className="document__subtitle">Document Name</p>
-              <h4 className="document__title">welcome.md</h4>
+              <input
+                type="text"
+                className="document__title"
+                value={fileName}
+                onChange={(event) => setFileName(event.target.value)}
+              />
             </div>
           </div>
         </div>
