@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import data from "./../../data/data.json";
 import "./index.css";
+import "./../../assets/markdownStyles/markdown-styles.css";
 
 function Main() {
   const initialMarkdownText = data[0].content;
@@ -33,7 +34,9 @@ function Main() {
           </div>
           <div className="preview__text">
             <div className="preview__content">
-              <ReactMarkdown>{markdownText}</ReactMarkdown>
+              <ReactMarkdown className="markdown-content">
+                {markdownText}
+              </ReactMarkdown>
             </div>
           </div>
         </div>

@@ -88,11 +88,11 @@
   height: 100%;
   color: #c1c4cb;
   font-size: 16px;
-  word-break: break-all;
+  word-break: break-word;
   box-sizing: border-box;
 }
 .preview__content {
-  max-height: calc(100vh - 150px);
-  padding: 5px 20px 10px 20px;
+  max-height: calc(100vh - 180px);
+  padding: 5px 20px 40px 20px;
   overflow: auto;
 }/*# sourceMappingURL=index.css.map */

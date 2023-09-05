@@ -1,0 +1,105 @@
+@import "./../colors/color.scss";
+@import "./../fonts/index.css";
+
+.markdown-content {
+  * {
+    font-family: RobotoSlab;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: $white;
+    margin: 30px 0;
+    letter-spacing: 0.05rem;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-weight: 300;
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h5 {
+    font-size: 18px;
+  }
+
+  h6 {
+    color: $orange;
+    font-size: 16px;
+    letter-spacing: 0.05rem;
+    margin: 30px 0;
+  }
+
+  p {
+    color: $lightGray;
+    font-weight: 300;
+    letter-spacing: 0.05rem;
+    margin: 10px 0;
+  }
+
+  ol {
+    padding-left: 40px;
+    font-size: 14px;
+    margin: 20px 0;
+  }
+
+  li {
+    margin: 10px 0;
+    color: $lightGray;
+    font-weight: 300;
+    letter-spacing: 0.05rem;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 20px;
+    font-size: 14px;
+    margin: 20px 0;
+
+    li::before {
+      content: "\2022";
+      color: $orange;
+      padding-right: 10px;
+    }
+  }
+
+  blockquote {
+    background-color: $quoteBlockDark;
+    padding: 20px 0 20px 20px;
+    border-left: 4px solid $orange;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    p {
+      color: $white;
+    }
+
+    a {
+      color: $white;
+    }
+  }
+
+  code {
+    color: $white;
+  }
+
+  pre {
+    background-color: $quoteBlockDark;
+    border-radius: 5px;
+    padding: 30px 0 30px 20px;
+  }
+}
