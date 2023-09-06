@@ -187,3 +187,15 @@
     }
   }
 }
+
+.save-message {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%);
+  background-color: $white;
+  color: $gray;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-weight: bold;
+}

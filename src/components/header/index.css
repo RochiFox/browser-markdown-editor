@@ -153,4 +153,16 @@
 .document__title:focus {
   border-bottom: 1px solid #ffffff;
   outline: none;
+}
+
+.save-message {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%);
+  background-color: #ffffff;
+  color: #7c8187;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-weight: bold;
 }/*# sourceMappingURL=index.css.map */
