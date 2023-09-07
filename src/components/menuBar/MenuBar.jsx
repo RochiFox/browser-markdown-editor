@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleTheme } from "./../../redux/reducers/themeSlice";
 import data from "../../data/data.json";
 import MoonLight from "../../assets/images/icon-light-mode.svg";
 import MoonDark from "../../assets/images/icon-dark-mode.svg";
@@ -7,6 +9,8 @@ import "./index.css";
 
 function MenuBar() {
   const [documents, setDocuments] = useState(data);
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
+  const dispatch = useDispatch();
 
   const createNewDocument = () => {
     const newDocument = {
@@ -50,6 +54,8 @@ function MenuBar() {
           id="theme-switch"
           name="theme-switch"
           className="menu__theme-switch"
+          checked={isDarkMode}
+          onChange={() => dispatch(toggleTheme())}
         />
         <label htmlFor="theme-switch" className="menu__theme-label">
           <span></span>
