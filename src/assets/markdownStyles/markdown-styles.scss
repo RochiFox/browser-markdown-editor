@@ -11,7 +11,6 @@
   h3,
   h4,
   h5 {
-    color: $white;
     margin: 30px 0;
     letter-spacing: 0.05rem;
   }
@@ -38,14 +37,12 @@
   }
 
   h6 {
-    color: $orange;
     font-size: 16px;
     letter-spacing: 0.05rem;
     margin: 30px 0;
   }
 
   p {
-    color: $lightGray;
     font-weight: 300;
     letter-spacing: 0.05rem;
     margin: 10px 0;
@@ -59,7 +56,6 @@
 
   li {
     margin: 10px 0;
-    color: $lightGray;
     font-weight: 300;
     letter-spacing: 0.05rem;
   }
@@ -78,28 +74,98 @@
   }
 
   blockquote {
-    background-color: $quoteBlockDark;
     padding: 20px 0 20px 20px;
     border-left: 4px solid $orange;
     border-radius: 5px;
     box-sizing: border-box;
-
-    p {
-      color: $white;
-    }
-
-    a {
-      color: $white;
-    }
-  }
-
-  code {
-    color: $white;
   }
 
   pre {
-    background-color: $quoteBlockDark;
     border-radius: 5px;
     padding: 30px 0 30px 20px;
+  }
+
+  &_dark {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: $white;
+    }
+
+    h6 {
+      color: $orange;
+    }
+
+    p {
+      color: $lightGray;
+    }
+
+    li {
+      color: $lightGray;
+    }
+
+    blockquote {
+      background-color: $quoteBlockDark;
+
+      p {
+        color: $white;
+      }
+
+      a {
+        color: $white;
+      }
+    }
+
+    code {
+      color: $white;
+    }
+
+    pre {
+      background-color: $quoteBlockDark;
+    }
+  }
+
+  &_light {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: $quoteBlockDark;
+    }
+
+    h6 {
+      color: $orange;
+    }
+
+    p {
+      color: $quoteBlockDark;
+    }
+
+    li {
+      color: $quoteBlockDark;
+    }
+
+    blockquote {
+      background-color: $dividerLight;
+
+      p {
+        color: $headerDark;
+      }
+
+      a {
+        color: $headerDark;
+      }
+    }
+
+    code {
+      color: $headerDark;
+    }
+
+    pre {
+      background-color: $dividerLight;
+    }
   }
 }
