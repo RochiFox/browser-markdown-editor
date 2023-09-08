@@ -62,6 +62,7 @@
   transform: translateX(250px);
 }
 .header__left-side {
+  transition: all 0.3s ease-in-out;
   display: flex;
 }
 .header__menu-btn {
