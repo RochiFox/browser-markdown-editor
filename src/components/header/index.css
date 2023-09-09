@@ -54,9 +54,13 @@
   height: 80px;
   background-color: #35393f;
   display: flex;
-  justify-content: space-between;
   position: relative;
   z-index: 2;
+}
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 .header.menu-open .header__left-side {
   transform: translateX(250px);

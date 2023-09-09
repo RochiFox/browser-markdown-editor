@@ -42,6 +42,8 @@ function Header() {
           </label>
         </div>
         <MenuBar />
+      </div>
+      <div className="header__nav">
         <div className="header__block">
           <img src={Logo} alt="logo" className="header__logo" />
           <span className="header__vertical-line" />
@@ -62,14 +64,14 @@ function Header() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="header__right-side">
-        <button className="header__delete-btn" onClick={openPopup} />
-        <DeletePopupMenu isOpen={isPopupOpen} onClose={closePopup} />
-        <button className="header__save-btn" onClick={showSaveMessage}>
-          <img src={SaveLogo} alt="save logo" className="header__save-logo" />
-          <span className="header__save-text">Save Changes</span>
-        </button>
+        <div className="header__right-side">
+          <button className="header__delete-btn" onClick={openPopup} />
+          <DeletePopupMenu isOpen={isPopupOpen} onClose={closePopup} />
+          <button className="header__save-btn" onClick={showSaveMessage}>
+            <img src={SaveLogo} alt="save logo" className="header__save-logo" />
+            <span className="header__save-text">Save Changes</span>
+          </button>
+        </div>
       </div>
       {isSaveMessageVisible && (
         <div className="save-message">Changed saves</div>
