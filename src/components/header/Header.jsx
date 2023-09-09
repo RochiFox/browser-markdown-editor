@@ -68,7 +68,7 @@ function Header() {
         <DeletePopupMenu isOpen={isPopupOpen} onClose={closePopup} />
         <button className="header__save-btn" onClick={showSaveMessage}>
           <img src={SaveLogo} alt="save logo" className="header__save-logo" />
-          Save Changes
+          <span className="header__save-text">Save Changes</span>
         </button>
       </div>
       {isSaveMessageVisible && (

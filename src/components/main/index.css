@@ -97,7 +97,7 @@
   background-position: center;
   border: none;
   background-color: transparent;
-  position: relative;
+  position: absolute;
   top: 20px;
   right: 20px;
   transition: all 0.2s ease-in-out;
@@ -129,4 +129,19 @@
   max-height: calc(100vh - 180px);
   padding: 5px 20px 40px 20px;
   overflow: auto;
+}
+
+@media (max-width: 920px) {
+  .main__left-side {
+    width: 100%;
+  }
+  .main__left-side_short {
+    width: 0;
+  }
+  .main__right-side {
+    width: 0;
+  }
+  .main__right-side_long {
+    width: 100%;
+  }
 }/*# sourceMappingURL=index.css.map */

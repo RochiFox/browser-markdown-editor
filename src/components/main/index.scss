@@ -115,7 +115,7 @@
     background-position: center;
     border: none;
     background-color: transparent;
-    position: relative;
+    position: absolute;
     top: 20px;
     right: 20px;
     transition: all 0.2s ease-in-out;
@@ -154,5 +154,25 @@
     max-height: calc(100vh - 180px);
     padding: 5px 20px 40px 20px;
     overflow: auto;
+  }
+}
+
+@media (max-width: 920px) {
+  .main {
+    &__left-side {
+      width: 100%;
+
+      &_short {
+        width: 0;
+      }
+    }
+
+    &__right-side {
+      width: 0;
+
+      &_long {
+        width: 100%;
+      }
+    }
   }
 }

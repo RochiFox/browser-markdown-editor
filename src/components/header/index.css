@@ -166,4 +166,28 @@
   padding: 20px 30px;
   border-radius: 10px;
   font-weight: bold;
+}
+
+@media (max-width: 920px) {
+  .header__logo {
+    display: none;
+  }
+  .header__vertical-line {
+    display: none;
+  }
+  .header__save-logo {
+    margin: 0;
+  }
+  .header__save-text {
+    display: none;
+  }
+  .document__block {
+    width: 90px;
+  }
+  .document__logo {
+    display: none;
+  }
+  .document__subtitle {
+    display: none;
+  }
 }/*# sourceMappingURL=index.css.map */

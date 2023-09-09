@@ -200,3 +200,37 @@
   border-radius: 10px;
   font-weight: bold;
 }
+
+@media (max-width: 920px) {
+  .header {
+    &__logo {
+      display: none;
+    }
+
+    &__vertical-line {
+      display: none;
+    }
+
+    &__save-logo {
+      margin: 0;
+    }
+
+    &__save-text {
+      display: none;
+    }
+  }
+
+  .document {
+    &__block {
+      width: 90px;
+    }
+
+    &__logo {
+      display: none;
+    }
+
+    &__subtitle {
+      display: none;
+    }
+  }
+}
