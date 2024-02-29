@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { saveToLocalStorage, loadFromLocalStorage } from "../../storage/localStorage";
+import { localStorageFileName } from "../../storage/localStorageConfig";
 import data from "./../../data/data.json";
 import "./index.css";
 import Logo from "../../assets/images/logo.svg";
@@ -10,7 +12,7 @@ import DeletePopupMenu from "../deletePopupMenu/DeletePopupMenu";
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [fileName, setFileName] = useState(data[0].name);
+  const [fileName, setFileName] = useState(loadFromLocalStorage(localStorageFileName, data[0].name));
   const [isSaveMessageVisible, setSaveMessageVisible] = useState(false);
 
   const showSaveMessage = () => {
@@ -31,6 +33,10 @@ function Header() {
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
+
+  useEffect(() => {
+    saveToLocalStorage(localStorageFileName, fileName);
+  }, [fileName]);
 
   return (
     <div className={`header ${menuOpen ? "menu-open" : ""}`}>
