@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "./../../redux/reducers/themeSlice";
+import { selectDocument } from "../../redux/reducers/documentSlice";
 import data from "../../data/data.json";
 import MoonLight from "../../assets/images/icon-light-mode.svg";
 import MoonDark from "../../assets/images/icon-dark-mode.svg";
@@ -9,8 +10,9 @@ import "./index.css";
 
 function MenuBar() {
   const [documents, setDocuments] = useState(data);
-  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
   const dispatch = useDispatch();
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
+  const selectedDocument = useSelector((state) => state.document.selectedDocument)
 
   const createNewDocument = () => {
     const newDocument = {
@@ -28,6 +30,10 @@ function MenuBar() {
     setDocuments(updatedDocuments);
   };
 
+  const handleDocumentClick = (document) => {
+    dispatch(selectDocument(document));
+  }
+
   return (
     <div className="menu">
       <h4 className="menu__title">My documents</h4>
@@ -40,6 +46,8 @@ function MenuBar() {
           key={item.id}
           name={item.name}
           createdAt={item.createdAt}
+          onClick={() => handleDocumentClick(item)}
+          isSelected={item === selectedDocument}
         />
       ))}
 

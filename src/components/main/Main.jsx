@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import data from "./../../data/data.json";
@@ -6,10 +6,23 @@ import "./index.css";
 import "./../../assets/markdownStyles/markdown-styles.css";
 
 function Main() {
-  const initialMarkdownText = data[0].content;
-  const [markdownText, setMarkdownText] = useState(initialMarkdownText);
+  const selectedDocument = useSelector(
+    (state) => state.document.selectedDocument
+  );
+  const defaultContent =
+    data.find((document) => document.name === "welcome.md")?.content || "";
+  const [markdownText, setMarkdownText] = useState(defaultContent);
   const [previewHideButton, setPreviewHideButton] = useState(false);
   const isDarkMode = useSelector((state) => state.theme.isDarkMode);
+
+  // Set current/default document text
+  useEffect(() => {
+    if (selectedDocument) {
+      setMarkdownText(selectedDocument.content);
+    } else {
+      setMarkdownText(defaultContent);
+    }
+  }, [selectedDocument, defaultContent]);
 
   const handleTextChange = (event) => {
     setMarkdownText(event.target.value);
@@ -43,7 +56,7 @@ function Main() {
                 : "markdown__textarea_dark"
             }`}
             onChange={handleTextChange}
-            defaultValue={initialMarkdownText}
+            value={markdownText}
           ></textarea>
         </div>
       </div>
