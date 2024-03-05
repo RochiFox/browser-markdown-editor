@@ -5,7 +5,7 @@ import { selectDocument } from "../../redux/reducers/documentSlice";
 import data from "../../data/data.json";
 import MoonLight from "../../assets/images/icon-light-mode.svg";
 import MoonDark from "../../assets/images/icon-dark-mode.svg";
-import DocumentFile from "../documentFile/DocumentFIle";
+import DocumentFile from "../documentFile/DocumentFile";
 import "./index.css";
 
 function MenuBar() {

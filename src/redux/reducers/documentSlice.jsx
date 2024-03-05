@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import data from "./../../data/data.json";
 
 const documentSlice = createSlice({
   name: "document",
   initialState: {
-    selectedDocument: null,
+    selectedDocument: data[0],
   },
   reducers: {
     selectDocument: (state, action) => {
