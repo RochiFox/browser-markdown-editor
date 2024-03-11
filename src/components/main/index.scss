@@ -1,4 +1,5 @@
 @import "./../../assets/colors/color.scss";
+@import "./../../assets/variables/variables.scss";
 
 .main {
   display: flex;
@@ -10,7 +11,7 @@
   &__left-side {
     width: 50%;
     height: 100%;
-    transition: all 0.5s ease-in-out;
+    transition: width 0.3s ease-in-out;
 
     &_short {
       width: 0%;
@@ -20,7 +21,7 @@
   &__right-side {
     width: 50%;
     height: 100%;
-    transition: all 0.5s ease-in-out;
+    transition: width 0.3s ease-in-out;
 
     &_long {
       width: 100%;
@@ -36,22 +37,22 @@
     min-height: calc(100vh - 134px);
     border: none;
     font-size: 16px;
-    font-family: RobotoMono, sans-serif;
+    font-family: $font-roboto-mono;
     padding: 5px 20px 10px 20px;
     box-sizing: border-box;
-    border-right: 2px solid $dividerDark;
+    border-right: 2px solid $divider-dark;
     resize: none;
     overflow: auto;
-    transition: all 0.2s ease-in-out;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
     &_dark {
-      background-color: $backgroundDark;
-      color: $lightGray;
+      background-color: $background-dark;
+      color: $light-gray;
     }
 
     &_light {
-      background-color: $darkWhite;
-      color: $quoteBlockDark;
+      background-color: $dark-white;
+      color: $quote-block-dark;
     }
 
     &:focus {
@@ -60,15 +61,15 @@
   }
 
   &__title-block {
-    border-right: 2px solid $dividerDark;
-    transition: all 0.2s ease-in-out;
+    border-right: 2px solid $divider-dark;
+    transition: background-color 0.3s ease-in-out;
 
     &_dark {
-      background-color: $quoteBlockDark;
+      background-color: $quote-block-dark;
     }
 
     &_light {
-      background-color: $dividerLight;
+      background-color: $divider-light;
     }
   }
 
@@ -87,14 +88,14 @@
   &__title-block {
     display: flex;
     justify-content: space-between;
-    transition: all 0.2s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
 
     &_dark {
-      background-color: $quoteBlockDark;
+      background-color: $quote-block-dark;
     }
 
     &_light {
-      background-color: $dividerLight;
+      background-color: $divider-light;
     }
   }
 
@@ -118,7 +119,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    transition: all 0.2s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 
     &_active {
       background-image: url(./../../assets/images/icon-show-preview.svg);
@@ -137,16 +138,16 @@
     font-size: 16px;
     word-break: break-word;
     box-sizing: border-box;
-    transition: all 0.2s ease-in-out;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
     &_dark {
-      background-color: $backgroundDark;
-      color: $lightGray;
+      background-color: $background-dark;
+      color: $light-gray;
     }
 
     &_light {
-      background-color: $darkWhite;
-      color: $quoteBlockDark;
+      background-color: $dark-white;
+      color: $quote-block-dark;
     }
   }
 
@@ -157,7 +158,7 @@
   }
 }
 
-@media (max-width: 920px) {
+@media (max-width: $mobile-size) {
   .main {
     &__left-side {
       width: 100%;

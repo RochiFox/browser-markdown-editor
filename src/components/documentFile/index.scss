@@ -1,4 +1,5 @@
 @import "./../../assets/colors/color.scss";
+@import "./../../assets/variables/variables.scss";
 
 .menu {
   &__block {
@@ -13,7 +14,7 @@
 
   &__date {
     font-size: 14px;
-    color: $dividerDark;
+    color: $divider-dark;
   }
 
   &__filename {
@@ -23,11 +24,11 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: all 0.2s ease-in-out;
+    transition: color 0.3s ease-in-out;
 
     &:hover {
       cursor: pointer;
-      color: $lightGray;
+      color: $light-gray;
     }
   }
 }

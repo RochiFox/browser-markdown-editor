@@ -12,7 +12,9 @@ function MenuBar() {
   const [documents, setDocuments] = useState(data);
   const dispatch = useDispatch();
   const isDarkMode = useSelector((state) => state.theme.isDarkMode);
-  const selectedDocument = useSelector((state) => state.document.selectedDocument)
+  const selectedDocument = useSelector(
+    (state) => state.document.selectedDocument
+  );
 
   const createNewDocument = () => {
     const newDocument = {
@@ -32,11 +34,12 @@ function MenuBar() {
 
   const handleDocumentClick = (document) => {
     dispatch(selectDocument(document));
-  }
+  };
 
   return (
     <div className="menu">
       <h4 className="menu__title">My documents</h4>
+
       <button className="menu__create-btn" onClick={createNewDocument}>
         + New Document
       </button>
@@ -57,6 +60,7 @@ function MenuBar() {
           alt="light theme logo"
           className="menu__logo-light"
         />
+
         <input
           type="checkbox"
           id="theme-switch"
@@ -65,9 +69,11 @@ function MenuBar() {
           checked={isDarkMode}
           onChange={() => dispatch(toggleTheme())}
         />
+
         <label htmlFor="theme-switch" className="menu__theme-label">
           <span></span>
         </label>
+
         <img src={MoonDark} alt="dark theme logo" className="menu__logo-dark" />
       </div>
     </div>

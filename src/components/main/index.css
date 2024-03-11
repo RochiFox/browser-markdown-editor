@@ -8,7 +8,7 @@
 .main__left-side {
   width: 50%;
   height: 100%;
-  transition: all 0.5s ease-in-out;
+  transition: width 0.3s ease-in-out;
 }
 .main__left-side_short {
   width: 0%;
@@ -16,7 +16,7 @@
 .main__right-side {
   width: 50%;
   height: 100%;
-  transition: all 0.5s ease-in-out;
+  transition: width 0.3s ease-in-out;
 }
 .main__right-side_long {
   width: 100%;
@@ -36,7 +36,7 @@
   border-right: 2px solid #5a6069;
   resize: none;
   overflow: auto;
-  transition: all 0.2s ease-in-out;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 .markdown__textarea_dark {
   background-color: #151619;
@@ -51,7 +51,7 @@
 }
 .markdown__title-block {
   border-right: 2px solid #5a6069;
-  transition: all 0.2s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 .markdown__title-block_dark {
   background-color: #2b2d31;
@@ -73,7 +73,7 @@
 .preview__title-block {
   display: flex;
   justify-content: space-between;
-  transition: all 0.2s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 .preview__title-block_dark {
   background-color: #2b2d31;
@@ -100,7 +100,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  transition: all 0.2s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 .preview__show-btn_active {
   background-image: url(./../../assets/images/icon-show-preview.svg);
@@ -115,7 +115,7 @@
   font-size: 16px;
   word-break: break-word;
   box-sizing: border-box;
-  transition: all 0.2s ease-in-out;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 .preview__text_dark {
   background-color: #151619;

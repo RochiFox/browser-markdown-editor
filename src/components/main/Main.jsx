@@ -49,6 +49,7 @@ function Main() {
           >
             <h2 className="markdown__title">Markdown</h2>
           </div>
+
           <textarea
             className={`markdown__textarea ${
               isDarkMode
@@ -60,6 +61,7 @@ function Main() {
           ></textarea>
         </div>
       </div>
+
       <div
         className={`main__right-side ${
           previewHideButton ? "main__right-side_long" : ""
@@ -74,6 +76,7 @@ function Main() {
             }`}
           >
             <h2 className="preview__title">Preview</h2>
+
             <button
               className={`preview__show-btn ${
                 previewHideButton ? "" : "preview__show-btn_active"
@@ -81,6 +84,7 @@ function Main() {
               onClick={handleHideButton}
             />
           </div>
+
           <div
             className={`preview__text ${
               isDarkMode ? "preview__text_light" : "preview__text_dark"

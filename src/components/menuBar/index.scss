@@ -1,4 +1,5 @@
 @import "./../../assets/colors/color.scss";
+@import "./../../assets/variables/variables.scss";
 
 .menu {
   display: block;
@@ -8,14 +9,14 @@
   height: 100vh;
   margin: 0;
   list-style: none;
-  background-color: $quoteBlockDark;
+  background-color: $quote-block-dark;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
   transform: translateX(-250px);
   padding: 0 20px;
 
   &__title {
     text-transform: uppercase;
-    color: $dividerDark;
+    color: $divider-dark;
     letter-spacing: 0.1rem;
     margin: 30px 0;
   }
@@ -28,11 +29,11 @@
     padding: 10px 30px;
     border-radius: 5px;
     margin-bottom: 20px;
-    transition: all 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
 
     &:hover {
       cursor: pointer;
-      background-color: $lightOrange;
+      background-color: $light-orange;
     }
   }
 
@@ -63,11 +64,10 @@
     top: 89%;
     left: 20%;
     padding: 10px;
-    transition: all 0.3s ease-in-out;
     width: 50px;
     height: 10px;
     border-radius: 50px;
-    background-color: $dividerDark;
+    background-color: $divider-dark;
     box-shadow: -4px 4px 15px inset rgba(0, 0, 0, 0.4);
 
     &:hover {
