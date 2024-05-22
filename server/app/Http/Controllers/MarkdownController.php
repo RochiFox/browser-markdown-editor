@@ -7,6 +7,14 @@ use App\Models\Markdown;
 
 class MarkdownController extends Controller
 {
+    public function index()
+    {
+        $markdowns = Markdown::all();
+        return response()->json([
+            'results' => $markdowns
+        ], 200);
+    }
+
     public function show($id = null)
     {
         if ($id) {
