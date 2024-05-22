@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "./../../redux/reducers/themeSlice";
+import { selectDocument } from "../../redux/reducers/documentSlice";
 import axios from "axios";
 import MoonLight from "../../assets/images/icon-light-mode.svg";
 import MoonDark from "../../assets/images/icon-dark-mode.svg";
@@ -69,9 +70,9 @@ function MenuBar() {
       });
   };
 
-  // const handleDocumentClick = (document) => {
-  //   dispatch(selectDocument(document));
-  // };
+  const handleDocumentClick = (document) => {
+    dispatch(selectDocument(document.id));
+  };
 
   return (
     <div className="menu">
@@ -86,7 +87,7 @@ function MenuBar() {
           key={item.id}
           name={item.title}
           createdAt={formatDate(item.created_at)}
-          // onClick={() => handleDocumentClick(item)}
+          onClick={() => handleDocumentClick(item)}
           isSelected={item === selectedDocument}
         />
       ))}

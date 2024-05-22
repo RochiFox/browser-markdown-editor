@@ -1,28 +1,45 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import data from "./../../data/data.json";
+import { selectDocumentId } from "../../redux/reducers/documentSlice";
+import axios from "axios";
 import "./index.css";
 import "./../../assets/markdownStyles/markdown-styles.css";
 
 function Main() {
-  const selectedDocument = useSelector(
-    (state) => state.document.selectedDocument
-  );
-  const defaultContent =
-    data.find((document) => document.name === "welcome.md")?.content || "";
-  const [markdownText, setMarkdownText] = useState(defaultContent);
+  const selectedDocumentId = useSelector(selectDocumentId);
+  const [markdownText, setMarkdownText] = useState("");
   const [previewHideButton, setPreviewHideButton] = useState(false);
   const isDarkMode = useSelector((state) => state.theme.isDarkMode);
 
   // Set current/default document text
   useEffect(() => {
-    if (selectedDocument) {
-      setMarkdownText(selectedDocument.content);
+    if (selectedDocumentId) {
+      axios
+        .get(`http://127.0.0.1:8000/api/markdown/${selectedDocumentId}`)
+        .then((response) => {
+          setMarkdownText(response.data.results.text);
+        })
+        .catch((error) => {
+          console.log("Error fetching document content: ", error);
+          setMarkdownText("");
+        });
     } else {
-      setMarkdownText(defaultContent);
+      axios
+        .get(`http://127.0.0.1:8000/api/markdown`)
+        .then((response) => {
+          if (response.data.results.length > 0) {
+            setMarkdownText(response.data.results[0].text);
+          } else {
+            setMarkdownText("");
+          }
+        })
+        .catch((error) => {
+          console.log("Error fetching default document content: ", error);
+          setMarkdownText("");
+        });
     }
-  }, [selectedDocument, defaultContent]);
+  }, [selectedDocumentId]);
 
   const handleTextChange = (event) => {
     setMarkdownText(event.target.value);
