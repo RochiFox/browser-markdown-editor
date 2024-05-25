@@ -1,7 +1,43 @@
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import axios from "axios";
+import { selectDocumentId } from "../../redux/reducers/documentSlice";
 import "./index.css";
 import IconClose from "../../assets/images/icon-close.svg";
 
 function DeletePopupMenu({ isOpen, onClose }) {
+  const selectedDocumentId = useSelector(selectDocumentId);
+  const [fileName, setFileName] = useState("");
+
+  // Set current/default document title on popup
+  useEffect(() => {
+    if (selectedDocumentId) {
+      axios
+        .get(`http://127.0.0.1:8000/api/markdown/${selectedDocumentId}`)
+        .then((response) => {
+          setFileName(response.data.results.title);
+        })
+        .catch((error) => {
+          console.log("Error fetching document content: ", error);
+          setFileName("");
+        });
+    } else {
+      axios
+        .get(`http://127.0.0.1:8000/api/markdown`)
+        .then((response) => {
+          if (response.data.results.length > 0) {
+            setFileName(response.data.results[0].title);
+          } else {
+            setFileName("");
+          }
+        })
+        .catch((error) => {
+          console.log("Error fetching default document content: ", error);
+          setFileName("");
+        });
+    }
+  }, [selectedDocumentId]);
+
   if (!isOpen) {
     return null;
   }
@@ -16,8 +52,8 @@ function DeletePopupMenu({ isOpen, onClose }) {
         </button>
 
         <p className="popup__subtitle">
-          Are you sure you want to delete the '<span>welcome.md</span>' document
-          and its contents? This action cannot be reversed.
+          Are you sure you want to delete the &apos;<span>{fileName}</span>
+          &apos; document and its contents? This action cannot be reversed.
         </p>
 
         <button className="popup__confirm-btn">Confirm & Delete</button>
