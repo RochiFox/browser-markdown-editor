@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
-import {
-  saveToLocalStorage,
-  loadFromLocalStorage,
-} from "../../storage/localStorage";
-import { localStorageFileName } from "../../storage/localStorageConfig";
-import data from "./../../data/data.json";
+import { useSelector } from "react-redux";
+import { selectDocumentId } from "../../redux/reducers/documentSlice";
+import axios from "axios";
 import "./index.css";
 import Logo from "../../assets/images/logo.svg";
 import DocumentLogo from "../../assets/images/icon-document.svg";
@@ -13,12 +10,40 @@ import MenuBar from "../menuBar/MenuBar";
 import DeletePopupMenu from "../deletePopupMenu/DeletePopupMenu";
 
 function Header() {
+  const selectedDocumentId = useSelector(selectDocumentId);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [fileName, setFileName] = useState(
-    loadFromLocalStorage(localStorageFileName, data[0].name)
-  );
+  const [fileName, setFileName] = useState("");
   const [isSaveMessageVisible, setSaveMessageVisible] = useState(false);
+
+  // Set current/default document title
+  useEffect(() => {
+    if (selectedDocumentId) {
+      axios
+        .get(`http://127.0.0.1:8000/api/markdown/${selectedDocumentId}`)
+        .then((response) => {
+          setFileName(response.data.results.title);
+        })
+        .catch((error) => {
+          console.log("Error fetching document content: ", error);
+          setFileName("");
+        });
+    } else {
+      axios
+        .get(`http://127.0.0.1:8000/api/markdown`)
+        .then((response) => {
+          if (response.data.results.length > 0) {
+            setFileName(response.data.results[0].title);
+          } else {
+            setFileName("");
+          }
+        })
+        .catch((error) => {
+          console.log("Error fetching default document content: ", error);
+          setFileName("");
+        });
+    }
+  }, [selectedDocumentId]);
 
   const showSaveMessage = () => {
     setSaveMessageVisible(true);
@@ -39,10 +64,6 @@ function Header() {
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
-
-  useEffect(() => {
-    saveToLocalStorage(localStorageFileName, fileName);
-  }, [fileName]);
 
   return (
     <div className={`header ${menuOpen ? "menu-open" : ""}`}>

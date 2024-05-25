@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import data from "./../../data/data.json";
 
 const documentSlice = createSlice({
   name: "document",
@@ -8,7 +7,7 @@ const documentSlice = createSlice({
   },
   reducers: {
     selectDocument: (state, action) => {
-      state.selectedDocumentId = action.payload;
+      state.selectedDocumentId = action.payload; 
     },
   },
 });
