@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { selectDocumentId } from "../../redux/reducers/documentSlice";
+import {
+  selectDocumentId,
+  selectDocument,
+} from "../../redux/reducers/documentSlice";
 import "./index.css";
 import IconClose from "../../assets/images/icon-close.svg";
 
 function DeletePopupMenu({ isOpen, onClose }) {
   const selectedDocumentId = useSelector(selectDocumentId);
+  const dispatch = useDispatch();
   const [fileName, setFileName] = useState("");
 
   // Set current/default document title on popup
@@ -42,6 +46,36 @@ function DeletePopupMenu({ isOpen, onClose }) {
     return null;
   }
 
+  // Delete the current document and return to the first one
+  const handleDelete = () => {
+    if (selectedDocumentId) {
+      axios
+        .delete(
+          `http://127.0.0.1:8000/api/markdown/delete/${selectedDocumentId}`
+        )
+        .then((response) => {
+          console.log(response.data.message);
+          axios
+            .get(`http://127.0.0.1:8000/api/markdown`)
+            .then((response) => {
+              if (response.data.results.length > 0) {
+                const firstDocumentId = response.data.results[0].id;
+                dispatch(selectDocument(firstDocumentId));
+              } else {
+                dispatch(selectDocument(null));
+              }
+            })
+            .catch((error) => {
+              console.log("Error fetching documents after deletion: ", error);
+            });
+          onClose();
+        })
+        .catch((error) => {
+          console.log("Error deleting document: ", error);
+        });
+    }
+  };
+
   return (
     <div className="popup">
       <div className="popup__container">
@@ -56,7 +90,9 @@ function DeletePopupMenu({ isOpen, onClose }) {
           &apos; document and its contents? This action cannot be reversed.
         </p>
 
-        <button className="popup__confirm-btn">Confirm & Delete</button>
+        <button className="popup__confirm-btn" onClick={handleDelete}>
+          Confirm & Delete
+        </button>
       </div>
       {isOpen && <div className="popup__overlay" onClick={onClose} />}
     </div>
