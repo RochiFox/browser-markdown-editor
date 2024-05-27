@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { selectDocumentId } from "../../redux/reducers/documentSlice";
 import axios from "axios";
 import PropTypes from "prop-types";
-import "./index.css";
+import "./index.scss";
 import Logo from "../../assets/images/logo.svg";
 import DocumentLogo from "../../assets/images/icon-document.svg";
 import SaveLogo from "../../assets/images/icon-save.svg";

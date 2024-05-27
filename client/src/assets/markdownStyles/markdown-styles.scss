@@ -1,5 +1,5 @@
 @import "./../colors/color.scss";
-@import "./../fonts/index.css";
+@import url("./../fonts/index.scss");
 
 .markdown-content {
   * {
@@ -99,15 +99,15 @@
     }
 
     p {
-      color: $lightGray;
+      color: $light-gray;
     }
 
     li {
-      color: $lightGray;
+      color: $light-gray;
     }
 
     blockquote {
-      background-color: $quoteBlockDark;
+      background-color: $quote-block-dark;
 
       p {
         color: $white;
@@ -123,7 +123,7 @@
     }
 
     pre {
-      background-color: $quoteBlockDark;
+      background-color: $quote-block-dark;
     }
   }
 
@@ -133,7 +133,7 @@
     h3,
     h4,
     h5 {
-      color: $quoteBlockDark;
+      color: $quote-block-dark;
     }
 
     h6 {
@@ -141,31 +141,31 @@
     }
 
     p {
-      color: $quoteBlockDark;
+      color: $quote-block-dark;
     }
 
     li {
-      color: $quoteBlockDark;
+      color: $quote-block-dark;
     }
 
     blockquote {
-      background-color: $dividerLight;
+      background-color: $divider-light;
 
       p {
-        color: $headerDark;
+        color: $header-dark;
       }
 
       a {
-        color: $headerDark;
+        color: $header-dark;
       }
     }
 
     code {
-      color: $headerDark;
+      color: $header-dark;
     }
 
     pre {
-      background-color: $dividerLight;
+      background-color: $divider-light;
     }
   }
 }

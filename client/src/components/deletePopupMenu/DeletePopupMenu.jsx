@@ -5,7 +5,8 @@ import {
   selectDocumentId,
   selectDocument,
 } from "../../redux/reducers/documentSlice";
-import "./index.css";
+import PropTypes from "prop-types";
+import "./index.scss";
 import IconClose from "../../assets/images/icon-close.svg";
 
 function DeletePopupMenu({ isOpen, onClose }) {
@@ -98,5 +99,10 @@ function DeletePopupMenu({ isOpen, onClose }) {
     </div>
   );
 }
+
+DeletePopupMenu.propTypes = {
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func,
+};
 
 export default DeletePopupMenu;

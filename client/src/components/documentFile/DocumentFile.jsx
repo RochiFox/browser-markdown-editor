@@ -1,4 +1,5 @@
-import "./index.css";
+import PropTypes from "prop-types";
+import "./index.scss";
 import DocumentLogo from "../../assets/images/icon-document.svg";
 
 function DocumentFile({ name, createdAt, onClick, isSelected }) {
@@ -17,5 +18,12 @@ function DocumentFile({ name, createdAt, onClick, isSelected }) {
     </div>
   );
 }
+
+DocumentFile.propTypes = {
+  name: PropTypes.string,
+  createdAt: PropTypes.instanceOf(Date),
+  onClick: PropTypes.func,
+  isSelected: PropTypes.bool,
+};
 
 export default DocumentFile;

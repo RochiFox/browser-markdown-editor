@@ -4,8 +4,8 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { selectDocumentId } from "../../redux/reducers/documentSlice";
 import axios from "axios";
 import PropTypes from "prop-types";
-import "./index.css";
-import "./../../assets/markdownStyles/markdown-styles.css";
+import "./index.scss";
+import "./../../assets/markdownStyles/markdown-styles.scss";
 
 function Main({ markdownText, setMarkdownText, setFileName }) {
   const selectedDocumentId = useSelector(selectDocumentId);

@@ -6,7 +6,7 @@ import axios from "axios";
 import MoonLight from "../../assets/images/icon-light-mode.svg";
 import MoonDark from "../../assets/images/icon-dark-mode.svg";
 import DocumentFile from "../documentFile/DocumentFile";
-import "./index.css";
+import "./index.scss";
 
 function MenuBar() {
   const [documents, setDocuments] = useState([]);
