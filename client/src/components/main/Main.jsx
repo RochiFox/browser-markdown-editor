@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { selectDocumentId } from "../../redux/reducers/documentSlice";
 import axios from "axios";
+import PropTypes from "prop-types";
 import "./index.css";
 import "./../../assets/markdownStyles/markdown-styles.css";
 
@@ -128,5 +129,11 @@ function Main({ markdownText, setMarkdownText, setFileName }) {
     </div>
   );
 }
+
+Main.propTypes = {
+  markdownText: PropTypes.string,
+  setMarkdownText: PropTypes.func.isRequired,
+  setFileName: PropTypes.func.isRequired,
+};
 
 export default Main;

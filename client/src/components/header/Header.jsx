@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectDocumentId } from "../../redux/reducers/documentSlice";
 import axios from "axios";
+import PropTypes from "prop-types";
 import "./index.css";
 import Logo from "../../assets/images/logo.svg";
 import DocumentLogo from "../../assets/images/icon-document.svg";
@@ -26,10 +27,13 @@ function Header({ markdownText, fileName, setFileName }) {
   const handleSaveChanges = () => {
     if (selectedDocumentId) {
       axios
-        .put(`http://127.0.0.1:8000/api/markdown/update/${selectedDocumentId}`, {
-          title: fileName,
-          text: markdownText,
-        })
+        .put(
+          `http://127.0.0.1:8000/api/markdown/update/${selectedDocumentId}`,
+          {
+            title: fileName,
+            text: markdownText,
+          }
+        )
         .then((response) => {
           console.log("Document updated successfully: ", response.data);
           SaveMessage();
@@ -110,5 +114,11 @@ function Header({ markdownText, fileName, setFileName }) {
     </div>
   );
 }
+
+Header.propTypes = {
+  markdownText: PropTypes.string,
+  fileName: PropTypes.string,
+  setFileName: PropTypes.func.isRequired,
+};
 
 export default Header;
