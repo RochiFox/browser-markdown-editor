@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectDocumentId } from "../../redux/reducers/documentSlice";
 import axios from "axios";
@@ -9,48 +9,35 @@ import SaveLogo from "../../assets/images/icon-save.svg";
 import MenuBar from "../menuBar/MenuBar";
 import DeletePopupMenu from "../deletePopupMenu/DeletePopupMenu";
 
-function Header() {
+function Header({ markdownText, fileName, setFileName }) {
   const selectedDocumentId = useSelector(selectDocumentId);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [fileName, setFileName] = useState("");
   const [isSaveMessageVisible, setSaveMessageVisible] = useState(false);
 
-  // Set current/default document title
-  useEffect(() => {
-    if (selectedDocumentId) {
-      axios
-        .get(`http://127.0.0.1:8000/api/markdown/${selectedDocumentId}`)
-        .then((response) => {
-          setFileName(response.data.results.title);
-        })
-        .catch((error) => {
-          console.log("Error fetching document content: ", error);
-          setFileName("");
-        });
-    } else {
-      axios
-        .get(`http://127.0.0.1:8000/api/markdown`)
-        .then((response) => {
-          if (response.data.results.length > 0) {
-            setFileName(response.data.results[0].title);
-          } else {
-            setFileName("");
-          }
-        })
-        .catch((error) => {
-          console.log("Error fetching default document content: ", error);
-          setFileName("");
-        });
-    }
-  }, [selectedDocumentId]);
-
-  const showSaveMessage = () => {
+  const SaveMessage = () => {
     setSaveMessageVisible(true);
 
     setTimeout(() => {
       setSaveMessageVisible(false);
     }, 3000);
+  };
+
+  const handleSaveChanges = () => {
+    if (selectedDocumentId) {
+      axios
+        .put(`http://127.0.0.1:8000/api/markdown/update/${selectedDocumentId}`, {
+          title: fileName,
+          text: markdownText,
+        })
+        .then((response) => {
+          console.log("Document updated successfully: ", response.data);
+          SaveMessage();
+        })
+        .catch((error) => {
+          console.log("Error updating document: ", error);
+        });
+    }
   };
 
   const openPopup = () => {
@@ -110,7 +97,7 @@ function Header() {
 
           <DeletePopupMenu isOpen={isPopupOpen} onClose={closePopup} />
 
-          <button className="header__save-btn" onClick={showSaveMessage}>
+          <button className="header__save-btn" onClick={handleSaveChanges}>
             <img src={SaveLogo} alt="save logo" className="header__save-logo" />
 
             <span className="header__save-text">Save Changes</span>

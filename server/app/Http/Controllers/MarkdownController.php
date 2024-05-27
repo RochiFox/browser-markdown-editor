@@ -52,21 +52,23 @@ class MarkdownController extends Controller
         }
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
         try {
             $markdown = Markdown::find($id);
 
             if (!$markdown) {
-                return $markdown()->json([
-                    'message' => 'Task Not Found.'
+                return response()->json([
+                    'message' => 'Document Not Found.'
                 ], 404);
             }
 
+            $markdown->title = $request->title;
+            $markdown->text = $request->text;
             $markdown->save();
 
             return response()->json([
-                'message' => "Task succesfully updated!"
+                'message' => 'Document successfully updated!'
             ], 200);
         } catch (\Exception $e) {
             return response()->json([

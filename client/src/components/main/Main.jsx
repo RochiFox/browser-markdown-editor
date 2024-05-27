@@ -6,23 +6,24 @@ import axios from "axios";
 import "./index.css";
 import "./../../assets/markdownStyles/markdown-styles.css";
 
-function Main() {
+function Main({ markdownText, setMarkdownText, setFileName }) {
   const selectedDocumentId = useSelector(selectDocumentId);
-  const [markdownText, setMarkdownText] = useState("");
   const [previewHideButton, setPreviewHideButton] = useState(false);
   const isDarkMode = useSelector((state) => state.theme.isDarkMode);
 
-  // Set current/default document text
+  // Set current/default document text and title
   useEffect(() => {
     if (selectedDocumentId) {
       axios
         .get(`http://127.0.0.1:8000/api/markdown/${selectedDocumentId}`)
         .then((response) => {
           setMarkdownText(response.data.results.text);
+          setFileName(response.data.results.title);
         })
         .catch((error) => {
           console.log("Error fetching document content: ", error);
           setMarkdownText("");
+          setFileName("");
         });
     } else {
       axios
@@ -30,16 +31,19 @@ function Main() {
         .then((response) => {
           if (response.data.results.length > 0) {
             setMarkdownText(response.data.results[0].text);
+            setFileName(response.data.results[0].title);
           } else {
             setMarkdownText("");
+            setFileName("");
           }
         })
         .catch((error) => {
           console.log("Error fetching default document content: ", error);
           setMarkdownText("");
+          setFileName("");
         });
     }
-  }, [selectedDocumentId]);
+  }, [selectedDocumentId, setMarkdownText, setFileName]);
 
   const handleTextChange = (event) => {
     setMarkdownText(event.target.value);
